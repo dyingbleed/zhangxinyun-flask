@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block styles %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+        {% endblock %}
+        {% block scripts %}
+        <script type="text/javascript" data-main="{{ url_for('static', filename='pages/main') }}" src="{{ url_for('static', filename='js/require.min.js') }}"></script>
+        {% endblock %}
+    </head>
+    <body>
+        {% block nav %}
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="navbar-collapse" aria-expanded="false">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand">{{ title }}</a>
+                </div>
+                <div id="navbar-collapse" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Test</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {% endblock %}
+        <div class="container">
+        {% block container %}
+        {% endblock %}
+        </div>
+    </body>
+</html>
