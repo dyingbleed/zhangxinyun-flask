@@ -2,24 +2,31 @@
 
 ## 简介
 
-
+数据可视化服务
 
 前端：
 
 * jQuery
+* Boostrap
 * RequireJS
+* HighCharts
 
 后端：
 
+* Flask
+* Flask-PyMongo
+* Flask-Script
+* PyYAML
+
 ## 数据库配置
 
-编辑 *config/db.yml*:
+数据库配置文件 *conf/db.yml*
 
-* **host** 主机地址
-* **dbname** 数据库名
+* *host* 主机地址
+* *dbname* 数据库名
 
 ## 启动
 
-执行：
+运行：
 
-  python manage.py runserver
+	python manage.py runserver
