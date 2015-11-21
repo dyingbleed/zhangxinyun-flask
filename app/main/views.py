@@ -1,19 +1,14 @@
-from flask import Flask, render_template, request
-from flask.ext.pymongo import PyMongo
-
 import json
+from flask import render_template, request
 
-app = Flask(__name__)
-app.config["MONGO_HOST"] = "192.168.1.106"
-app.config["MONGO_DBNAME"] = "infoq"
+from . import main
+from .. import mongo
 
-mongo = PyMongo(app)
-
-@app.route('/')
+@main.route('/')
 def index():
     return render_template("index.html", title=u"\u5f20\u99a8\u5141\u7684\u4e3b\u9875")
 
-@app.route('/data/<collection>')
+@main.route('/data/<collection>')
 def data_collection(collection):
     args = request.args
     cluster = args["cluster"]
@@ -28,6 +23,3 @@ def data_collection(collection):
             data.append(item)
 
     return json.dumps(data, ensure_ascii=False)
-
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=4000, debug=True)

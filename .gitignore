@@ -1,0 +1,5 @@
+# virtualenv
+venv
+
+# Python compile file
+*.pyc
