@@ -1,22 +1,22 @@
 requirejs.config({
     baseUrl: "static/js",
     paths: {
-        domReady: "domReady",
+        zhangxinyun: "../pages/index",
+
+        angular: "angular",
         jquery: "jquery-2.1.4",
         bootstrap: "bootstrap",
-        highcharts: "highcharts",
-        pages: "../pages"
+        highcharts: "highcharts"
     },
     shim: {
-        bootstrap: {
-            deps: ['jquery']
+        angular: {
+            deps: ['jquery'],
+            exports: 'angular'
         },
         highcharts: {
             deps: ['jquery'],
             exports: "$.fn.highcharts"
         }
-    }
-});
-
-require(["bootstrap", "pages/index"], function() {
+    },
+    waitSeconds: 60
 });

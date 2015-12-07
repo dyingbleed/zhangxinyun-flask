@@ -8,10 +8,14 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
         {% endblock %}
         {% block scripts %}
-        <script type="text/javascript" data-main="{{ url_for('static', filename='pages/main') }}" src="{{ url_for('static', filename='js/require.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/require.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='pages/main.js') }}"></script>
+        <script type="text/javascript">
+        require(['zhangxinyun'], function() {});
+        </script>
         {% endblock %}
     </head>
-    <body>
+    <body zhangxinyun>
         {% block nav %}
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
