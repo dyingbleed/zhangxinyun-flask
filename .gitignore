@@ -1,5 +1,5 @@
 # virtualenv
-venv
+env
 
 # Python compile file
 *.pyc
