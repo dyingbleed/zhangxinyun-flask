@@ -1,10 +1,14 @@
 define(function(require) {
     var angular = require('angular');
+    
+    require('angular-route');
 
-    var zhangxinyun = angular.module('zhangxinyun', []);
+    var zhangxinyun = angular.module('zhangxinyun', ['ngRoute']);
 
     zhangxinyun.init = function() {
-        angular.bootstrap(document, ['zhangxinyun']);
+    	require("pages/app/scrapy/index");
+
+        angular.bootstrap(document, ['zhangxinyun', 'scrapy']);
     }
 
     return zhangxinyun;
