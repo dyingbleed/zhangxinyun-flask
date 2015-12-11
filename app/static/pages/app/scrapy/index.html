@@ -1,1 +1,29 @@
-<p>Hello Scrapy</p>
+<div class="container">
+	<h2>采集节点列表</h2>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th width="10%">#</th>
+					<th width="30%">名称</th>
+					<th width="30%">主机</th>
+					<th width="10%">端口</th>
+					<th widht="20%">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="spider in spiders track by $index">
+					<td>{{ $index }}</td>
+					<td>{{ spider.name }}</td>
+					<td>{{ spider.host }}</td>
+					<td>{{ spider.port }}</td>
+					<td>
+						<a href="javascript:void;" style="color:#d9534f;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+						<a href="javascript:void;"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<a href="#/scrapy/add" class="btn btn-primary">添加新节点</a>
+</div>

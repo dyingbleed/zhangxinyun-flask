@@ -3,3 +3,9 @@ env
 
 # Python compile file
 *.pyc
+
+# Data files
+data
+
+# Migration files
+migrations
