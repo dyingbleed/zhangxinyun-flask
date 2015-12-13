@@ -16,24 +16,27 @@
 		<div class="form-group">
 			<label class="col-sm-2" for="node_id">节点</label>
 			<div class="col-sm-10">
-				<select ng-model="task.node_id" type="text" class="form-control" name="node_id" placeholder="Node" required>
-					<option>abc</option>
-					<option>def</option>
+				<select ng-model="task.node_id" type="text" class="form-control" name="node_id" placeholder="Select a node" required ng-disabled="!nodes">
+					<option value=""></option>
+					<option ng-repeat="node in nodes" value="node['id']">{{ node['name'] }}</option>
 				</select>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2" for="project">项目</label>
 			<div class="col-sm-10">
-				<input ng-model="task.project" type="text" class="form-control" name="project" placeholder="Project" required>
+				<select ng-model="task.project" class="form-control" name="project" placeholder="Project" required ng-disabled="!task.node_id">
+					<option value=""></option>
+				</select>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2" for="spider">爬虫</label>
 			<div class="col-sm-10">
-				<input ng-model="task.spider" type="text" class="form-control" name="spider" placeholder="SSpider" required>
+				<select ng-model="task.spider" class="form-control" name="spider" placeholder="SSpider" required ng-disabled="!task.project">
+					<option value=""></option>
+				</select>
 			</div>
-			
 		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">

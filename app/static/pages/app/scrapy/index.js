@@ -5,6 +5,10 @@ define(function(require) {
 
 	var scrapy = modules.get('scrapy', ['ngRoute']);
 
+	// 加载 Node 服务
+	require('pages/app/scrapy/service/task');
+	require('pages/app/scrapy/service/node');
+
 	// 加载 Tooltip 指令
 	require('pages/app/scrapy/directive/tooltip');
 

@@ -5,9 +5,9 @@ define(function(require) {
 	scrapy.config(function($routeProvider) {
 		$routeProvider.when('/scrapy/node/add', {
 			template: require("text!pages/app/scrapy/controller/nodeEditor.html"),
-			controller: function($scope, $http, $location) {
+			controller: function($scope, $http, $location, node) {
 				$scope.save = function() {
-					$http.post("/api/spider/nodes", $scope.node).then(function() {
+					node.save($scope.node).then(function() {
 						$location.path('/scrapy/node');
 					}, function(error) {
 						//TODO
