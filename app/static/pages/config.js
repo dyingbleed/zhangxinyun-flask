@@ -19,6 +19,12 @@ requirejs.config({
             exports: 'angular'
         },
         "angular-route": ["angular"],
+
+        bootstrap: {
+            deps: ['jquery'],
+            exports: '$.fn.tooltip'
+        },
+
         highcharts: {
             deps: ['jquery'],
             exports: "$.fn.highcharts"

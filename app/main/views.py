@@ -1,9 +1,6 @@
-import json
-from flask import render_template, request
+from flask import render_template
 
 from . import main
-from .. import db, mongo
-from ..models import Spider
 
 @main.route('/')
 def index():

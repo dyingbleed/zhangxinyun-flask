@@ -5,28 +5,50 @@ from flask import request
 
 from . import api
 from .. import db, mongo
-from ..models import Spider
+from ..models import SpiderTask, SpiderNode
 
-def generate_uuid_id():
+
+def _generate_uuid_id():
     return str(uuid.uuid4()).replace('-', '')
 
-@api.route('/spiders', methods=['GET'])
-def query_spiders():
+
+@api.route('/spider/tasks', methods=['GET'])
+def query_spider_tasks():
     try:
         result = []
-        spiders = Spider.query.all()
-        for spider in spiders:
-            result.append(spider.to_json())
+        tasks = SpiderTask.query.all()
+        for task in tasks:
+            result.append(task.to_json())
         return json.dumps(result)
     except Exception, e:
-        abort(500)
-    
+        pass
 
-@api.route('/spiders', methods=['POST'])
-def add_spiders():
+@api.route('/spider/tasks', methods=['POST'])
+def add_spider_task():
     data = request.data
-    spider = Spider.from_json(json.loads(data))
-    spider.id = generate_uuid_id()
-    db.session.add(spider)
+    task = SpiderTask.from_json(json.loads(data))
+    task.id = _generate_uuid_id()
+    db.session.add(task)
+    db.session.commit()
+    return ''
+
+
+@api.route('/spider/nodes', methods=['GET'])
+def query_spider_nodes():
+    try:
+        result = []
+        nodes = SpiderNode.query.all()
+        for node in nodes:
+            result.append(node.to_json())
+        return json.dumps(result)
+    except Exception, e:
+        pass
+
+@api.route('/spider/nodes', methods=['POST'])
+def add_spider_node():
+    data = request.data
+    node = SpiderNode.from_json(json.loads(data))
+    node.id = _generate_uuid_id()
+    db.session.add(node)
     db.session.commit()
     return ''
