@@ -1,8 +1,8 @@
 define(function(require) {
 	var modules = require('modules');
 
-	var scrapy = modules.get('scrapy');
-	scrapy.factory('node', function($http) {
+	var collect = modules.get('collect');
+	collect.factory('node', function($http) {
 		var query = function(id) {
 			var url = "/api/spider/nodes";
 			if (!!id) {

@@ -8,10 +8,10 @@ define(function(require) {
     modules.link(zhangxinyun);
 
     zhangxinyun.init = function() {
-    	require("pages/app/scrapy/index");
+    	require("pages/app/collect/index");
         require("pages/app/process/index");
 
-        angular.bootstrap(document, ['zhangxinyun', 'scrapy', 'process']);
+        angular.bootstrap(document, ['zhangxinyun', 'collect', 'process']);
     }
 
     return zhangxinyun;

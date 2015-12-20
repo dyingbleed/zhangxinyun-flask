@@ -1,13 +1,13 @@
 define(function(require) {
 	var modules = require('modules');
 
-	var scrapy = modules.get('scrapy');
-	scrapy.config(function($routeProvider) {
-		$routeProvider.when('/scrapy/node', {
-			template: require("text!pages/app/scrapy/controller/node.html"),
+	var collect = modules.get('collect');
+	collect.config(function($routeProvider) {
+		$routeProvider.when('/collect/node', {
+			template: require("text!pages/app/collect/controller/node.html"),
 			controller: function($scope, $http, $location, node) {
 				$scope.addNode = function() {
-					$location.path('/scrapy/node/add');
+					$location.path('/collect/node/add');
 				};
 
 				var refresh = $scope.refresh = function() {
