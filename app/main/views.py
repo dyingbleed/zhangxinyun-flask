@@ -9,5 +9,5 @@ def index():
     	title=u"\u5f20\u99a8\u5141\u7684\u4e3b\u9875", 
     	menus=[
     	{'title': u"\u6570\u636e\u91c7\u96c6", 'url': "/scrapy"},
-    	{'title': u"\u6570\u636e\u5904\u7406", 'url': "/spark"}
+    	{'title': u"\u6570\u636e\u5904\u7406", 'url': "/process"}
     	])

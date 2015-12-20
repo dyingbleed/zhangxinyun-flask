@@ -3,10 +3,10 @@ define(function(require) {
 	require('angular-route');
 	var modules = require('modules');
 
-	var spark = modules.get('spark', ['ngRoute']);
+	var process = modules.get('process', ['ngRoute']);
 
 	// 加载任务页面
-	require('pages/app/spark/controller/driver');
+	require('pages/app/process/controller/driver');
 
-	return spark;
+	return process;
 });

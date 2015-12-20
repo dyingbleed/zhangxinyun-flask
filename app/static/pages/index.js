@@ -9,9 +9,9 @@ define(function(require) {
 
     zhangxinyun.init = function() {
     	require("pages/app/scrapy/index");
-        require("pages/app/spark/index");
+        require("pages/app/process/index");
 
-        angular.bootstrap(document, ['zhangxinyun', 'scrapy', 'spark']);
+        angular.bootstrap(document, ['zhangxinyun', 'scrapy', 'process']);
     }
 
     return zhangxinyun;
