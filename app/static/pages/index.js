@@ -10,8 +10,9 @@ define(function(require) {
     zhangxinyun.init = function() {
     	require("pages/app/collect/index");
         require("pages/app/process/index");
+        require("pages/app/visualize/index");
 
-        angular.bootstrap(document, ['zhangxinyun', 'collect', 'process']);
+        angular.bootstrap(document, ['zhangxinyun', 'collect', 'process', 'visualize']);
     }
 
     return zhangxinyun;
