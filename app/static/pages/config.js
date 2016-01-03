@@ -15,6 +15,9 @@ requirejs.config({
 
         "bootstrap-tooltip": "js/bootstrap",
 
+        d3: "js/d3",
+        "d3-layout-cloud": "js/d3.layout.cloud",
+
         highcharts: "js/highcharts"
     },
     shim: {
@@ -27,6 +30,11 @@ requirejs.config({
         "bootstrap-tooltip": {
             deps: ['jquery'],
             exports: '$.fn.tooltip'
+        },
+
+        "d3-layout-cloud": {
+            deps: ['d3'],
+            exports: 'd3.layout.cloud'
         },
 
         highcharts: {
