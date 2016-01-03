@@ -5,7 +5,9 @@ define(function(require) {
 
 	var visualize = modules.get('visualize', ['ngRoute']);
 
-	// 加载任务页面
+	// 加载便签云
+	require('pages/app/visualize/directive/cloud');
+
 	require('pages/app/visualize/controller/vis');
 
 	return visualize;
