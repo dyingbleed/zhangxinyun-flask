@@ -13,12 +13,15 @@ define(function(require) {
 			},
 			link: function(scope, element, attrs) {
 				var width = element.width();
+				width = !!width ? width : 500;
 				var height = element.height();
+				height = !! height ? height : 500;
 
 				var fill = d3.scale.category20();
 
 				var layout = d3.layout.cloud();
 				layout.words(scope.data)
+					.timeInterval(10)
 					.size([width, height])
 					.padding(5)
 					.rotate(function() { return 0; })
