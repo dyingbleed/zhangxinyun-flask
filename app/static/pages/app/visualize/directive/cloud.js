@@ -1,7 +1,6 @@
 define(function(require) {
 	var d3 = require('d3');
 	var cloud = require('d3-layout-cloud').cloud;
-	debugger;
 	
 	var modules = require('modules');
 
