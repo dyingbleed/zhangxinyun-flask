@@ -11,7 +11,9 @@
 * AngularJS
 * RequireJS
 * lodash
-* D3.js
+* D3
+* D3 Dispatch
+* D3 Cloud
 
 后端：
 
