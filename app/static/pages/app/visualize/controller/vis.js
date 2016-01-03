@@ -5,10 +5,10 @@ define(function(require) {
 	visualize.config(function($routeProvider) {
 		$routeProvider.when('/visualize', {
 			template: require("text!pages/app/visualize/controller/vis.html"),
-			controller: function($scope) {
-				$scope.data = ["Baidu", "Alibaba", "Tencent"].map(function(d) {
-					return {text: d, size: 10 + Math.random() * 90};
-				})
+			controller: function($scope, label) {
+				label.query().then(function(response) {
+					$scope.data = response.data;
+				});
 			}
 		});
 	});
