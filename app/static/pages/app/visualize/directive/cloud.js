@@ -1,6 +1,7 @@
 define(function(require) {
 	var d3 = require('d3');
-	require('d3-layout-cloud');
+	var cloud = require('d3-layout-cloud').cloud;
+	debugger;
 	
 	var modules = require('modules');
 
@@ -19,7 +20,7 @@ define(function(require) {
 
 				var fill = d3.scale.category20();
 
-				var layout = d3.layout.cloud();
+				var layout = cloud();
 				layout.words(scope.data)
 					.timeInterval(10)
 					.size([width, height])
