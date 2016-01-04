@@ -27,8 +27,8 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
 
     ## PyMongo
-    MONGO_HOST = db_config['host'] or '127.0.0.1'
-    MONGO_DBNAME = db_config['dbname'] or 'dev'
+    MONGO_HOST = db_config['mongo_host'] or '127.0.0.1'
+    MONGO_DBNAME = db_config['mongo_dbname'] or 'dev'
         
 
 config = {
