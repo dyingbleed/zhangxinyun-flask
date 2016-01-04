@@ -7,4 +7,5 @@ from .. import mongo
 
 @api.route('/labels', methods=['GET'])
 def query_labels():
-    return '[{"text": "Baidu", "size": 5}, {"text": "Alibaba", "size": 9}, {"text": "Tencent", "size": 8}]'
+    query_result = [{'text': doc['text'], 'size': doc['size']} for doc in mongo.db.test.find()]
+    return json.dumps(query_result, ensure_ascii=False, encoding='utf-8')
