@@ -28,8 +28,8 @@
 
 数据库配置文件 *conf/db.yml*
 
-* *host* 主机地址
-* *dbname* 数据库名
+* *mongo_host* MongoDB 主机地址
+* *mongo_dbname* MongoDB 数据库名
 
 ## 启动
 
