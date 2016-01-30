@@ -1,6 +1,60 @@
 {% extends "base.html" %}
+
+{% block styles %}
+{{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/font-awesome.min.css') }}" />
+{% endblock %}
+
 {% block navs %}
 {% for menu in menus %}
 <li><a href="#{{menu.url}}">{{ menu.title }}</a></li>
 {% endfor %}
+{% endblock %}
+
+{% block container %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">数据源</h3>
+    </div>
+    <div class="panel-body">
+        <form>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <th width="80%"></th>
+                        <th width="10%"></th>
+                        <th width="10%"></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>爬虫1</td>
+                            <td><button type="button" class="btn btn-default btn-xs">刷新<i class="fa fa-refresh"></i></button></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>爬虫2</td>
+                            <td><button type="button" class="btn btn-default btn-xs">刷新<i class="fa fa-refresh"></i></button></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>爬虫3</td>
+                            <td><button type="button" class="btn btn-default btn-xs">刷新<i class="fa fa-refresh"></i></button></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button type="submit" class="btn btn-default" style="float:right;">生成</button>            
+        </form>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">图表</h3>
+    </div>
+    <div class="panel-body">
+        <p>This is a test.</p>
+    </div>
+</div>
 {% endblock %}
