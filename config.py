@@ -7,7 +7,7 @@ def init():
     basedir = path.abspath(path.dirname(__file__))
 
     global db_config
-    db_yaml = open('config/db.yml')
+    db_yaml = open('conf/db.yml')
     db_config = yaml.safe_load(db_yaml)
     db_yaml.close()
 
@@ -29,6 +29,9 @@ class DevelopmentConfig(Config):
     ## PyMongo
     MONGO_HOST = db_config['mongo_host'] or '127.0.0.1'
     MONGO_DBNAME = db_config['mongo_dbname'] or 'dev'
+
+    ## Scrapy
+
         
 
 config = {

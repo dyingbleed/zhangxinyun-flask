@@ -1,0 +1,28 @@
+.pending {
+    color: green;
+    animation: blink 1s steps(5, start) infinite;
+    -webkit-animation: blink 1s steps(5, start) infinite;
+}
+
+@keyframes blink {
+    to {
+        opacity: .5;
+    }
+}
+@-webkit-keyframes blink {
+    to {
+        opacity: .5;
+    }
+}
+
+.running {
+    color: green;
+}
+
+.finished {
+    color: red;
+}
+
+.none {
+    color: grey;
+}
