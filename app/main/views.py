@@ -6,6 +6,6 @@ from . import main
 @main.route('/')
 def index():
     return render_template("index.html", 
-    	title=u"趋势分析", 
+    	title=u"热点分析", 
     	menus=[]
     )
