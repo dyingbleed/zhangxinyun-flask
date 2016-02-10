@@ -1,3 +1,4 @@
+from urllib import urlencode
 from urllib2 import urlopen
 import json
 
@@ -47,3 +48,13 @@ def query_spiders():
                 spiders[i]['status'] = 'none'
 
     return json.dumps(spiders)
+
+@api.route('/spiders', methods=['POST'])
+def startup_spiders():
+    spiders = json.loads(request.get_data())
+
+    for spider in spiders:
+        data = [('project', project), ('spider', spider)]
+        urlopen('http://{}:{}/schedule.json'.format(host, str(port)), urlencode(data))
+    
+    return '';

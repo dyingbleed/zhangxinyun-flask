@@ -18,7 +18,7 @@
         <h3 class="panel-title">数据源</h3>
     </div>
     <div class="panel-body">
-        <form id="datasource-form" v-on:submit.prevent="submit">
+        <form id="form" v-on:submit.prevent="submit">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -37,7 +37,7 @@
                     </tbody>
                 </table>
             </div>
-            <button type="submit" class="btn btn-default" style="float:right;">生成</button>            
+            <button type="submit" class="btn btn-default" :disabled="datasource.length == 0">生成</button>            
         </form>
     </div>
 </div>

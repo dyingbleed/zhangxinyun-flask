@@ -39,14 +39,15 @@ Vue.directive('word-cloud', {
 });
 
 var datasourceForm = new Vue({
-	el: '#datasource-form',
+	el: '#form',
 	data: {
 		spiders: [],
 		datasource: []
 	},
 	methods: {
 		submit: function() {
-			//
+			var datasource = this.$data.datasource;
+			$.post('/api/spiders', JSON.stringify(datasource));
 		},
 		refresh: function(spider) {
 			alert(spider);
