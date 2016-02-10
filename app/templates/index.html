@@ -47,13 +47,19 @@
         <h3 class="panel-title">图表</h3>
     </div>
     <div class="panel-body">
-        <p>This is a test.</p>
+        <div id="chart" v-bind:w="words" v-word-cloud></div>
     </div>
 </div>
 {% endblock %}
 
 {% block scripts %}
 {{ super() }}
+<!-- Vue.js -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/vue.js') }}"></script>
+<!-- D3.js -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/d3.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/d3-dispatch.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/d3.layout.cloud.js') }}"></script>
+<!-- page -->
 <script type="text/javascript" src="{{ url_for('static', filename='page/index.js') }}"></script>
 {% endblock %}

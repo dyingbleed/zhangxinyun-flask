@@ -26,3 +26,7 @@
 .none {
     color: grey;
 }
+
+#chart {
+    width: 100%;
+}
