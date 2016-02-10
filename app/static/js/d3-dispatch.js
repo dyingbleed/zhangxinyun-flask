@@ -1,8 +1,4 @@
-(function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define('d3-dispatch', ['exports'], factory) :
-  factory((global.d3_dispatch = {}));
-}(this, function (exports) { 'use strict';
+(function (exports) {
 
   function dispatch() {
     return new Dispatch(arguments);
@@ -96,9 +92,6 @@
 
   dispatch.prototype = Dispatch.prototype;
 
-  var version = "0.2.5";
-
-  exports.version = version;
   exports.dispatch = dispatch;
 
-}));
+})(window);
