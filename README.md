@@ -8,10 +8,10 @@
 
 * jQuery
 * Boostrap
-* AngularJS
-* RequireJS
-* lodash
-* D3.js
+* Vue.js
+* D3
+* D3 dispatch
+* D3 cloud
 
 后端：
 
@@ -26,8 +26,16 @@
 
 数据库配置文件 *conf/db.yml*
 
-* *host* 主机地址
-* *dbname* 数据库名
+* *mongo_host* MongoDB 主机地址
+* *mongo_dbname* MongoDB 数据库名
+
+## 爬虫配置
+
+爬虫配置文件 *conf/scrapy.yml*
+
+* *scrapyd_host* Scrapyd 主机地址
+* *scrapyd_port* Scrapyd 端口号
+* *project* Scrapy 项目
 
 ## 启动
 

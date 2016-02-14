@@ -1,0 +1,32 @@
+.pending {
+    color: yellow;
+}
+
+@keyframes blink {
+    to {
+        opacity: .5;
+    }
+}
+@-webkit-keyframes blink {
+    to {
+        opacity: .5;
+    }
+}
+
+.running {
+    color: green;
+    animation: blink 1s steps(5, start) infinite;
+    -webkit-animation: blink 1s steps(5, start) infinite;
+}
+
+.finished {
+    color: red;
+}
+
+.none {
+    color: grey;
+}
+
+#chart {
+    width: 100%;
+}

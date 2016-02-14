@@ -8,17 +8,8 @@
         {% block styles %}
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
         {% endblock %}
-        {% block scripts %}
-        <script type="text/javascript" src="{{ url_for('static', filename='js/require.min.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='pages/config.js') }}"></script>
-        <script type="text/javascript">
-        require(['zhangxinyun'], function(zhangxinyun) {
-            zhangxinyun.init();
-        });
-        </script>
-        {% endblock %}
     </head>
-    <body zhangxinyun>
+    <body>
         {% block nav %}
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -40,9 +31,15 @@
             </div>
         </nav>
         {% endblock %}
+
         <div ng-view class="container">
         {% block container %}
         {% endblock %}
         </div>
+
+        {% block scripts %}
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-2.1.4.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
