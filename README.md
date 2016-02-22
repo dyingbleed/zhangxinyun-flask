@@ -39,6 +39,14 @@
 
 ## 启动
 
+安装 Python 包管理器 *pip*：
+
+    wget https://bootstrap.pypa.io/get-pip.py && sudo python get-pip.py
+	
+安装 Python 虚拟环境 *virtualenv*
+
+    sudo pip install virtualenv
+
 安装依赖包：
 
     pip install -r requirements.txt
