@@ -48,9 +48,34 @@ var datasourceForm = new Vue({
 		submit: function() {
 			var datasource = this.$data.datasource;
 			$.post('/api/spiders', JSON.stringify(datasource));
-		},
-		refresh: function(spider) {
-			alert(spider);
+
+			function polling() {
+				$.getJSON('/api/spiders', function(data) {
+					datasourceForm.$set('spiders', data);
+				});
+
+				if((function(spiders) {
+					if(spiders && spiders.length > 0) {
+						for(var i = 0; i < spiders.length; i++) {
+							var spider = spiders[i];
+							if(spider['status'] == 'finished') {
+								$.getJSON('/api/labels', function(data) {
+									chart.$set('words', data);
+								});
+								return false;
+							}
+						}
+					}
+
+					return true;
+				})(datasourceForm.$data.spiders)) {
+					setTimeout(polling, 1000);
+				}
+			}
+			$.getJSON('/api/spiders', function(data) {
+				datasourceForm.$set('spiders', data);
+				setTimeout(polling, 1000);
+			});
 		}
 	}
 });
@@ -64,8 +89,4 @@ var chart = new Vue({
 
 $.getJSON('/api/spiders', function(data) {
 	datasourceForm.$set('spiders', data);
-});
-
-$.getJSON('/api/labels', function(data) {
-	chart.$set('words', data);
 });

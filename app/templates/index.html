@@ -23,16 +23,14 @@
                 <table class="table">
                     <thead>
                         <th width="5%">#</th>
+                        <th width="25%">状态</th>
                         <th width="70%">爬虫</th>
-                        <th width="5%">状态</th>
-                        <th width="20%">操作</th>
                     </thead>
                     <tbody>
                         <tr v-for="spider in spiders">
                             <td><input type="checkbox" name="datasource" value="${ spider.name }" v-model="datasource"></td>
-                            <td>${ spider.name }</td>
                             <td><i class="fa fa-circle" v-bind:class="spider.status"></i></td>
-                            <td><button type="button" class="btn btn-default btn-xs" v-on:click="refresh(spider.name)">刷新<i class="fa fa-refresh"></i></button></td>
+                            <td>${ spider.name }</td>
                         </tr>
                     </tbody>
                 </table>
