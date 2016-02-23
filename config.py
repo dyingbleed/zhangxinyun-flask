@@ -29,10 +29,8 @@ class DevelopmentConfig(Config):
     ## PyMongo
     MONGO_HOST = db_config['mongo_host'] or '127.0.0.1'
     MONGO_DBNAME = db_config['mongo_dbname'] or 'dev'
-
-    ## Scrapy
-
-        
+    MONGO_USERNAME = db_config['mongo_username'] or 'root'
+    MONGO_PASSWORD = db_config['mongo_password'] or '1'
 
 config = {
     'development': DevelopmentConfig,
