@@ -17,7 +17,9 @@ Vue.directive('word-cloud', {
 			layout.start();
 
 			function draw(words) {
-				d3.select("#chart").append("svg")
+				d3.select("#chart")
+					.html("")
+					.append("svg")
 					.attr("width", layout.size()[0])
 					.attr("height", layout.size()[1])
 					.append("g")
@@ -28,6 +30,7 @@ Vue.directive('word-cloud', {
 					.style("font-size", function(d) { return d.size + "px"; })
 					.style("font-family", "Impact")
 					.style("fill", function(d, i) { return fill(i); })
+					.style("cursor", "pointer")
 					.attr("text-anchor", "middle")
 					.attr("transform", function(d) {
 						return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
