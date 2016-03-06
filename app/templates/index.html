@@ -16,6 +16,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">数据源</h3>
+        <a class="btn btn-default btn-xs" href="javascript:void(0);" role="button" data-toggle="modal" data-target="#upload">新建</a>
     </div>
     <div class="panel-body">
         <form id="form" v-on:submit.prevent="submit">
@@ -35,8 +36,7 @@
                     </tbody>
                 </table>
             </div>
-            <button type="submit" class="btn btn-default" :disabled="datasource.length == 0">生成</button>
-            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#upload">上传</button>
+            <button type="submit" class="btn btn-default" :disabled="datasource.length == 0">生成图标</button>
         </form>
     </div>
 </div>

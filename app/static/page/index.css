@@ -30,3 +30,11 @@
 #chart {
     width: 100%;
 }
+
+.panel .panel-heading .panel-title {
+    display: inline-block;
+}
+
+.panel .panel-heading .btn {
+    float: right;
+}
