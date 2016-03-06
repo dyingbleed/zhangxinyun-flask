@@ -90,3 +90,7 @@ var chart = new Vue({
 $.getJSON('/api/spiders', function(data) {
 	datasourceForm.$set('spiders', data);
 });
+
+$.getJSON('/api/labels', function(data) {
+	chart.$set('words', data);
+});
