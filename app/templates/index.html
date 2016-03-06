@@ -33,7 +33,13 @@
                     <tbody>
                         <tr v-for="spider in spiders">
                             <td><input type="checkbox" name="datasource" value="${ spider.name }" v-model="datasource"></td>
-                            <td><i class="fa fa-circle" v-bind:class="spider.status"></i></td>
+                            <td>
+                                <i class="fa fa-circle" v-bind:class="spider.status"></i>
+                                <span v-if="spider.status == 'pending'">就绪</span>
+                                <span v-if="spider.status == 'running'">运行中</span>
+                                <span v-if="spider.status == 'finished'">完成</span>
+                                <span v-if="spider.status == 'none'">未知</span>
+                            </td>
                             <td>${ spider.name }</td>
                             <td>2016-02-20 15:28</td>
                             <td>2016-03-06 18:42</td>
