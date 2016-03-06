@@ -16,7 +16,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">数据源</h3>
-        <a class="btn btn-default btn-xs" href="javascript:void(0);" role="button" data-toggle="modal" data-target="#upload">新建</a>
+        <a class="btn btn-default btn-xs" href="javascript:void(0);" role="button" data-toggle="modal" data-target="#upload"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 新建</a>
     </div>
     <div class="panel-body">
         <form id="form" v-on:submit.prevent="submit">
@@ -25,10 +25,10 @@
                     <thead>
                         <th width="5%">#</th>
                         <th width="10%">状态</th>
-                        <th width="30%">名称</th>
+                        <th width="25%">名称</th>
                         <th width="25%">创建时间</th>
                         <th width="25%">更新时间</th>
-                        <th width="5%">删除</th>
+                        <th width="10%">删除</th>
                     </thead>
                     <tbody>
                         <tr v-for="spider in spiders">
@@ -65,7 +65,7 @@
             <div class="col-md-4">
                 <h2>文章列表</h2>
                 <div id="articles" class="list-group">
-                    <a v-for="article in articles" href="${ article.url }" target="_blank" class="list-group-item">${ article.title }</a>
+                    <a v-for="article in articles" href="${ article.url }" target="_blank" class="list-group-item">${ $index + 1 }. ${ article.title }</a>
                 </div>
             </div>
         </div>
