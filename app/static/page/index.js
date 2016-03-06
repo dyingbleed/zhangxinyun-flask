@@ -32,7 +32,10 @@ Vue.directive('word-cloud', {
 					.attr("transform", function(d) {
 						return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
 					})
-					.text(function(d) { return d.text; });
+					.text(function(d) { return d.text; })
+					.on("click", function(d) {
+						articles.$set('articles', d.articles);
+					});
 			}
 		}
 	}
@@ -86,6 +89,13 @@ var chart = new Vue({
 		words: []
 	}
 });
+
+var articles = new Vue({
+	el: '#articles',
+	data: {
+		articles: []
+	}
+})
 
 $.getJSON('/api/spiders', function(data) {
 	datasourceForm.$set('spiders', data);

@@ -46,7 +46,17 @@
         <h3 class="panel-title">图表</h3>
     </div>
     <div class="panel-body">
-        <div id="chart" v-bind:w="words" v-word-cloud></div>
+        <div class="row">
+            <div class="col-md-8">
+                <div id="chart" v-bind:w="words" v-word-cloud></div>
+            </div>
+            <div class="col-md-4">
+                <h2>文章列表</h2>
+                <div id="articles" class="list-group">
+                    <a v-for="article in articles" href="${ article.url }" target="_blank" class="list-group-item" href="#">${ article.title }</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
