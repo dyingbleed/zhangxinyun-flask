@@ -24,19 +24,24 @@
                 <table class="table">
                     <thead>
                         <th width="5%">#</th>
-                        <th width="25%">状态</th>
-                        <th width="70%">爬虫</th>
+                        <th width="10%">状态</th>
+                        <th width="30%">名称</th>
+                        <th width="25%">创建时间</th>
+                        <th width="25%">更新时间</th>
+                        <th width="5%">删除</th>
                     </thead>
                     <tbody>
                         <tr v-for="spider in spiders">
                             <td><input type="checkbox" name="datasource" value="${ spider.name }" v-model="datasource"></td>
                             <td><i class="fa fa-circle" v-bind:class="spider.status"></i></td>
                             <td>${ spider.name }</td>
+                            <td>2016-02-20 15:28</td>
+                            <td>2016-03-06 18:42</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <button type="submit" class="btn btn-default" :disabled="datasource.length == 0 || loading"><span v-if="loading" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> 生成图标</button>
+            <button type="submit" class="btn btn-default" :disabled="datasource.length == 0 || loading"><span v-if="loading" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> ${ loading_submit }</button>
         </form>
     </div>
 </div>

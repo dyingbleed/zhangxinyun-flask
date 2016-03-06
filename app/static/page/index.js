@@ -50,7 +50,7 @@ var datasourceForm = new Vue({
 		spiders: [],
 		datasource: [],
 		loading: false,
-		loading_submit: '生成图标'
+		loading_submit: '生成图表'
 	},
 	methods: {
 		submit: function() {
@@ -94,7 +94,7 @@ var datasourceForm = new Vue({
 			if(loading) {
 				this.$set('loading_submit', '正在生成...');
 			} else {
-				this.$set('loading_submit', '生成图标');
+				this.$set('loading_submit', '生成图表');
 			}
 		}
 	}
