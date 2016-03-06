@@ -53,3 +53,7 @@
 .panel .panel-heading .btn {
     float: right;
 }
+
+#form span.glyphicon-remove {
+    color: red;
+}

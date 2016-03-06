@@ -37,6 +37,7 @@
                             <td>${ spider.name }</td>
                             <td>2016-02-20 15:28</td>
                             <td>2016-03-06 18:42</td>
+                            <td><a href="javascript:void(0);"><span class="glyphicon glyphicon-remove"></span></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -58,7 +59,7 @@
             <div class="col-md-4">
                 <h2>文章列表</h2>
                 <div id="articles" class="list-group">
-                    <a v-for="article in articles" href="${ article.url }" target="_blank" class="list-group-item" href="#">${ article.title }</a>
+                    <a v-for="article in articles" href="${ article.url }" target="_blank" class="list-group-item">${ article.title }</a>
                 </div>
             </div>
         </div>
