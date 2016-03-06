@@ -45,13 +45,16 @@ var datasourceForm = new Vue({
 	el: '#form',
 	data: {
 		spiders: [],
-		datasource: []
+		datasource: [],
+		loading: false,
+		loading_submit: '生成图标'
 	},
 	methods: {
 		submit: function() {
 			var datasource = this.$data.datasource;
 			$.post('/api/spiders', JSON.stringify(datasource));
 
+			datasourceForm.$set('loading', true);
 			function polling() {
 				$.getJSON('/api/spiders', function(data) {
 					datasourceForm.$set('spiders', data);
@@ -73,12 +76,23 @@ var datasourceForm = new Vue({
 					return true;
 				})(datasourceForm.$data.spiders)) {
 					setTimeout(polling, 1000);
+				} else {
+					datasourceForm.$set('loading', false);
 				}
 			}
 			$.getJSON('/api/spiders', function(data) {
 				datasourceForm.$set('spiders', data);
 				setTimeout(polling, 1000);
 			});
+		}
+	},
+	watch: {
+		'loading': function(loading) {
+			if(loading) {
+				this.$set('loading_submit', '正在生成...');
+			} else {
+				this.$set('loading_submit', '生成图标');
+			}
 		}
 	}
 });
