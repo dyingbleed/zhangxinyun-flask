@@ -35,7 +35,8 @@
                     </tbody>
                 </table>
             </div>
-            <button type="submit" class="btn btn-default" :disabled="datasource.length == 0">生成</button>            
+            <button type="submit" class="btn btn-default" :disabled="datasource.length == 0">生成</button>
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#upload">上传</button>
         </form>
     </div>
 </div>
@@ -46,6 +47,34 @@
     </div>
     <div class="panel-body">
         <div id="chart" v-bind:w="words" v-word-cloud></div>
+    </div>
+</div>
+
+<div class="modal fade" id="upload" tabindex="-1" role="dialog" aria-labelledby="uploadLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">爬虫上传</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="target">目标</label>
+                        <input type="text" class="form-control" placeholder="Target">
+                    </div>
+                    <div class="form-group">
+                        <label for="target">爬虫文件</label>
+                        <input type="file">
+                        <p>上传 .zip .egg 爬虫文件</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">上传</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}
