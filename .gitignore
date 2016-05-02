@@ -12,3 +12,4 @@ migrations
 
 # config
 config
+*.yml
