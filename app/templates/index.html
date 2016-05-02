@@ -53,20 +53,32 @@
     </div>
 </div>
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">图表</h3>
-    </div>
-    <div class="panel-body">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#tfidf" aria-controls="tfidf" role="tab" data-toggle="tab">文章特性词</a></li>
+    <li role="presentation"><a href="#lda" aria-controls="lda" role="tab" data-toggle="tab">文章主题</a></li>
+</ul>
+
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="tfidf">
         <div class="row">
             <div class="col-md-8">
-                <div id="chart" v-bind:w="words" v-word-cloud></div>
+                <div id="chart" v-bind:words="words" v-word-cloud></div>
             </div>
             <div class="col-md-4">
                 <h2>文章列表</h2>
                 <div id="articles" class="list-group">
                     <a v-for="article in articles" href="${ article.url }" target="_blank" class="list-group-item">${ $index + 1 }. ${ article.title }</a>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="lda">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="topicBubble"></div>
+            </div>
+            <div class="col-md-6">
+                <div id="topicBar"></div>
             </div>
         </div>
     </div>
@@ -105,10 +117,12 @@
 {{ super() }}
 <!-- Vue.js -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/vue.js') }}"></script>
-<!-- D3.js -->
+<!-- chart -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/d3.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/d3-dispatch.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/d3.layout.cloud.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/highcharts.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/highcharts-more.js') }}"></script>
 <!-- page -->
 <script type="text/javascript" src="{{ url_for('static', filename='page/index.js') }}"></script>
 {% endblock %}

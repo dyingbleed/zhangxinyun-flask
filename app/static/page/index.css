@@ -57,3 +57,13 @@
 #form span.glyphicon-remove {
     color: red;
 }
+
+#topicBubble {
+    width: 500px;
+    height: 400px;
+}
+
+#topicBar {
+    width: 500px;
+    height: 400px;
+}
