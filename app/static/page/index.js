@@ -51,85 +51,6 @@ Vue.directive('word-cloud', {
 });
 
 /*
- * 散点图
- */
-var topicBubble = $("#topicBubble").highcharts({
-	chart: {
-		type: "bubble"
-	},
-	title: {
-		text: "文章 － 主题"
-	},
-	credits: {
-		enabled: false
-	},
-	legend: {
-		enabled: false
-	},
-	xAxis: {
-		type: 'category'
-	},
-	yAxis: {
-		title: {
-			text: null
-		}
-	},
-	plotOptions: {
-		series: {
-			dataLabels: {
-				enabled: true,
-				format: "{point.name}"
-			}
-		}
-	},
-	series: [{
-		data: [
-			{x: 3 ,y: 2, z: 5, name: "1"},
-			{x: 6 ,y: 4, z: 7, name: "2"},
-			{x: 2 ,y: 5, z: 6, name: "3"},
-			{x: 6 ,y: 3, z: 8, name: "4"},
-			{x: 4, y: 5, z: 10, name: "5"}
-		]
-	}]
-});
-
-/*
- * 柱状图
- */
-var topicBar = $("#topicBar").highcharts({
-	chart: {
-		type: "column",
-		inverted: true
-	},
-	title: {
-		text: "主题 － 词汇"
-	},
-	credits: {
-		enabled: false
-	},
-	legend: {
-		enabled: false
-	},
-	xAxis: {
-		type: 'category'
-	},
-	yAxis: {
-		title: {
-			text: null
-		}
-	},
-	series: [{
-		data: [
-			['大数据', 12],
-			['架构', 9],
-			['云', 7],
-			['计算', 7],
-			['分布式', 6]
-		]
-	}]
-});
-
-/*
  * 数据源表单
  */
 var datasourceForm = new Vue({
@@ -214,4 +135,80 @@ $.getJSON('/api/spiders', function(data) {
 
 $.getJSON('/api/labels', function(data) {
 	chart.$set('words', data);
+});
+
+$.getJSON('/api/topics', function(data) {
+	/*
+	 * 散点图
+	 */
+	var topicBubble = $("#topicBubble").highcharts({
+		chart: {
+			type: "bubble"
+		},
+		title: {
+			text: "文章 － 主题"
+		},
+		credits: {
+			enabled: false
+		},
+		legend: {
+			enabled: false
+		},
+		xAxis: {
+			type: 'category'
+		},
+		yAxis: {
+			title: {
+				text: null
+			}
+		},
+		plotOptions: {
+			bubble: {
+				events: {
+					click: function(event) {
+						$("#topicBar").highcharts().series[0].setData(event.point.terms)
+					}
+				}
+			},
+			series: {
+				dataLabels: {
+					enabled: true,
+					format: "{point.name}"
+				}
+			}
+		},
+		series: [{
+			data: data
+		}]
+	});
+
+	/*
+	 * 柱状图
+	 */
+	var topicBar = $("#topicBar").highcharts({
+		chart: {
+			type: "column",
+			inverted: true
+		},
+		title: {
+			text: "主题 － 词汇"
+		},
+		credits: {
+			enabled: false
+		},
+		legend: {
+			enabled: false
+		},
+		xAxis: {
+			type: 'category'
+		},
+		yAxis: {
+			title: {
+				text: null
+			}
+		},
+		series: [{
+			data: []
+		}]
+	});
 });
