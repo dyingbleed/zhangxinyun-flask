@@ -24,10 +24,9 @@
                 <table class="table">
                     <thead>
                         <th width="5%">#</th>
-                        <th width="10%">状态</th>
-                        <th width="25%">名称</th>
-                        <th width="25%">创建时间</th>
-                        <th width="25%">更新时间</th>
+                        <th width="25%">状态</th>
+                        <th width="30%">名称</th>
+                        <th width="30%">创建时间</th>
                         <th width="10%">删除</th>
                     </thead>
                     <tbody>
@@ -42,7 +41,6 @@
                             </td>
                             <td>${ spider.name }</td>
                             <td>2016-02-20 15:28</td>
-                            <td>2016-03-06 18:42</td>
                             <td><a href="javascript:void(0);"><span class="glyphicon glyphicon-remove"></span></a></td>
                         </tr>
                     </tbody>
@@ -65,7 +63,6 @@
                 <div id="chart" v-bind:words="words" v-word-cloud></div>
             </div>
             <div class="col-md-4">
-                <h2>文章列表</h2>
                 <div id="articles" class="list-group">
                     <a v-for="article in articles" href="${ article.url }" target="_blank" class="list-group-item">${ $index + 1 }. ${ article.title }</a>
                 </div>
