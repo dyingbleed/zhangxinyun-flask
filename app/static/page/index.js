@@ -90,6 +90,9 @@ var datasourceForm = new Vue({
 					setTimeout(polling, 1000);
 				} else {
 					datasourceForm.$set('loading', false);
+
+					queryLabels();
+					queryTopics();
 				}
 			}
 			$.getJSON('/api/spiders', function(data) {
@@ -133,82 +136,86 @@ $.getJSON('/api/spiders', function(data) {
 	datasourceForm.$set('spiders', data);
 });
 
-$.getJSON('/api/labels', function(data) {
-	chart.$set('words', data);
-});
+function queryLabels() {
+	$.getJSON('/api/labels', function(data) {
+		chart.$set('words', data);
+	});
+}
 
-$.getJSON('/api/topics', function(data) {
-	/*
-	 * 散点图
-	 */
-	var topicBubble = $("#topicBubble").highcharts({
-		chart: {
-			type: "bubble"
-		},
-		title: {
-			text: "文章 － 主题"
-		},
-		credits: {
-			enabled: false
-		},
-		legend: {
-			enabled: false
-		},
-		xAxis: {
-			type: 'category'
-		},
-		yAxis: {
+function queryTopics() {
+	$.getJSON('/api/topics', function(data) {
+		/*
+		 * 散点图
+		 */
+		var topicBubble = $("#topicBubble").highcharts({
+			chart: {
+				type: "bubble"
+			},
 			title: {
-				text: null
-			}
-		},
-		plotOptions: {
-			bubble: {
-				events: {
-					click: function(event) {
-						$("#topicBar").highcharts().series[0].setData(event.point.terms)
+				text: "文章 － 主题"
+			},
+			credits: {
+				enabled: false
+			},
+			legend: {
+				enabled: false
+			},
+			xAxis: {
+				type: 'category'
+			},
+			yAxis: {
+				title: {
+					text: null
+				}
+			},
+			plotOptions: {
+				bubble: {
+					events: {
+						click: function(event) {
+							$("#topicBar").highcharts().series[0].setData(event.point.terms)
+						}
+					}
+				},
+				series: {
+					dataLabels: {
+						enabled: true,
+						format: "{point.name}"
 					}
 				}
 			},
-			series: {
-				dataLabels: {
-					enabled: true,
-					format: "{point.name}"
-				}
-			}
-		},
-		series: [{
-			data: data
-		}]
-	});
+			series: [{
+				data: data
+			}]
+		});
 
-	/*
-	 * 柱状图
-	 */
-	var topicBar = $("#topicBar").highcharts({
-		chart: {
-			type: "column",
-			inverted: true
-		},
-		title: {
-			text: "主题 － 词汇"
-		},
-		credits: {
-			enabled: false
-		},
-		legend: {
-			enabled: false
-		},
-		xAxis: {
-			type: 'category'
-		},
-		yAxis: {
+		/*
+		 * 柱状图
+		 */
+		var topicBar = $("#topicBar").highcharts({
+			chart: {
+				type: "column",
+				inverted: true
+			},
 			title: {
-				text: null
-			}
-		},
-		series: [{
-			data: []
-		}]
-	});
-});
+				text: "主题 － 词汇"
+			},
+			credits: {
+				enabled: false
+			},
+			legend: {
+				enabled: false
+			},
+			xAxis: {
+				type: 'category'
+			},
+			yAxis: {
+				title: {
+					text: null
+				}
+			},
+			series: [{
+				data: []
+			}]
+		});
+	});	
+}
